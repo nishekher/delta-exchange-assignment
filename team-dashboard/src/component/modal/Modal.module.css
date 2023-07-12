@@ -1,0 +1,74 @@
+/* components/Modal.module.css */
+.modalBtn{
+    background-color:#4B74FF;
+    color:#fff;
+    font-size: 14px;
+    padding: .5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .modalContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    width:40%
+    
+  }
+  
+  .modal h2 {
+    margin-top: 0;
+  }
+  
+  .modal form > div {
+    margin-bottom: 10px;
+  }
+  
+  .modal label {
+    display: block;
+    width: 100%;
+   
+  }
+  
+  .modal input[type='text'] {
+    width: 100%;
+    height: 30px;
+    margin-top: .5rem;
+  }
+  
+.btnCancel{
+    background-color:transparent;
+    color:#4B74FF;
+    font-size: 14px;
+    padding: .3rem 1rem;
+    border: 1px solid #4B74FF ;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.btnSave{
+    background-color:#4B74FF;
+    color:#fff;
+    font-size: 14px;
+    padding: .3rem 1.4rem;
+    border: none ;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 1rem;
+}

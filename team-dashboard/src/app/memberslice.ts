@@ -24,9 +24,14 @@ const membersSlice = createSlice({
     addMember: (state, action: PayloadAction<Member>) => {
       state.members.push(action.payload);
     },
+    deleteMember: (state, action: PayloadAction<number>) => {
+      state.members = state.members.filter(
+        (member) => member.id !== action.payload
+      );
+    },
   },
 });
 
-export const { addMember } = membersSlice.actions;
+export const { addMember, deleteMember } = membersSlice.actions;
 
 export default membersSlice.reducer;
