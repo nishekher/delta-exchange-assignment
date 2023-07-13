@@ -1,8 +1,12 @@
 .mainSection{
-    margin:2rem
+    margin: 2rem 2rem 0.5rem 2rem;
 }
 
 .header{
     display: flex;
     align-items: center;
+}
+
+.ruler{
+    margin-bottom: 1rem;
 }
