@@ -1,0 +1,49 @@
+.multiSelect{
+    margin-right:1rem;
+    width:10rem;
+    &:hover{
+        .optionGroup{
+            display: block;
+        }
+    }
+}
+
+.multiSelectArrow{
+    border: solid 1px #eee;
+    font-size: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.optionSection{
+    position: fixed;
+    width: 10rem;
+}
+
+.optionGroup{
+    display: none;
+    box-sizing: border-box;
+    list-style: none;
+    width:100%;
+    list-style: none;
+    border:solid 1px #eee;
+    padding:0.3rem 0rem;
+    z-index: 99;
+    position: relative;
+    background:#ffffff
+}
+
+.option{
+    display: flex;
+    align-items: center;
+    padding:0.5rem 0.5rem;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #eee;
+    }
+
+}
+

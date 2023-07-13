@@ -1,6 +1,6 @@
 // Table component responsible dispalying Table
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../app/store';
 import { deleteMember } from '../../app/memberslice';
@@ -9,8 +9,40 @@ import styles from './Table.module.css';
 
 const Table: React.FC = () => {
   const members = useSelector((state: RootState) => state.member.members);
+  const filter: any = useSelector(
+    (state: RootState) => state.member.filterMembers
+  );
+  const [data, setData] = useState<any>([]);
+
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const filterData =
+      filter.companies &&
+      members.filter((member) => filter.companies.includes(member.company));
+
+    const isfiltered =
+      filterData && filterData.length > 0 ? filterData : members;
+    const sortedData = [...isfiltered].sort((a, b) => {
+      if (filter.isActive) {
+        if (
+          a.status.toLowerCase() === 'active' &&
+          b.status.toLowerCase() === 'closed'
+        ) {
+          return -1;
+        } else if (
+          a.status.toLowerCase() === 'closed' &&
+          b.status.toLowerCase() === 'active'
+        ) {
+          return 1;
+        }
+      }
+      // If filter.isActive is false or the status values are the same, maintain the original order
+      return 0;
+    });
+    setData(sortedData);
+  }, [filter, members]);
 
   const handleCheckboxChange = (id: number) => {
     if (selectedRows.includes(id)) {
@@ -21,11 +53,9 @@ const Table: React.FC = () => {
   };
 
   const handleDeleteClick = (id: number) => {
-    console.log('delete', id);
     dispatch(deleteMember(id));
   };
 
-  console.log('members', members);
   return (
     <table className={styles.table}>
       <thead>
@@ -40,9 +70,9 @@ const Table: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        {members &&
-          members.length > 0 &&
-          members.map((member) => (
+        {data &&
+          data.length > 0 &&
+          data.map((member: any) => (
             <tr key={member.id}>
               <td>
                 <input

@@ -1,0 +1,17 @@
+.filterSection{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem 0;
+}
+
+.status{
+    width:7rem;
+    border: solid 1px #eee;
+    background-color: transparent;
+    font-size: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
