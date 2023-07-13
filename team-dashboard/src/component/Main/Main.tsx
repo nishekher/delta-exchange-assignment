@@ -10,6 +10,7 @@ const Main: React.FC = () => {
         <h1>Team Members</h1>
         <Modal />
       </div>
+      <hr />
       <Table />
     </div>
   );
